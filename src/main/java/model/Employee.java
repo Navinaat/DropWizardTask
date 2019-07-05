@@ -85,7 +85,7 @@ public class Employee {
         return dept_id;
     }
 
-    public void setdeptid(String dept_id) {
+    public void setDeptidid(String dept_id) {
         this.dept_id = dept_id;
     }
 }

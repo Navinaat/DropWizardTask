@@ -2,7 +2,10 @@ package com.java.dropwizard;
 
 import api.resource.EmployeeResources;
 import api.resource.Service.EmployeeService;
+import com.java.dropwizard.Service.DepartmentService;
+import com.java.dropwizard.db.DepartmentDAO;
 import com.java.dropwizard.db.EmployeeDAO;
+import com.java.dropwizard.resource.DepartmentResource;
 import io.dropwizard.Application;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Environment;
@@ -26,5 +29,15 @@ public class EmployeeApplication extends Application<EmployeeConfiguration> {
 
         final EmployeeResources employeeResources = new EmployeeResources(employeeService);
         environment.jersey().register(employeeResources);
+
+        final DepartmentDAO departmentDAO=dbi.onDemand(DepartmentDAO.class);
+        final DepartmentService departmentService=new DepartmentService(departmentDAO);
+        final DepartmentResource departmentResources=new DepartmentResource(departmentService);
+
+        environment.jersey().register(departmentResources);
+
     }
-}
+
+    
+        }
+    

@@ -17,5 +17,19 @@ public class EmployeeService {
     public List<Employee> getEmployee() {
         return this.employeeDAO.getEmployee();
     }
+    public int deleteEmployee(int id)
+
+    {
+
+        return this.employeeDAO.deleteEmployee(id);
+
+    }
+    public Employee getEmploye(final int empid)
+
+    {
+
+        return this.employeeDAO.getEmploye( empid);
+
+    }
 
 }
